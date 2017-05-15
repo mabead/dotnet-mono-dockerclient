@@ -16,12 +16,12 @@ Here is a typical example of how to use this capability:
 
 1. Start a container where you mount your build script (`your_build.sh`). Note the two -v options. This assumes that you have a script named `your_build.sh` that exists at the root of your git repository.
 ````
-docker run -it --rm \
+docker run -i --rm \
            -v /var/run/docker.sock:/var/run/docker.sock \
            -v $(pwd):/git \
            -w /git \
            mabead/dotnet-mono-dockerclient:PROPER_TAG  \
-           your_build.sh 
+           ./your_build.sh 
 ```` 
 2. From within `your_build.sh`, you can then execute other docker commands that will be executed on the docker server running on your host. For example, you can build new containers from within your build container!
 ````
